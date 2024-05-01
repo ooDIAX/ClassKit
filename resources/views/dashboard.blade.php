@@ -10,8 +10,19 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
+                    
+                    <div class="mt-4">
+                    
+                        <a href="{{ route('courses.create') }}" class="btn btn-primary">Create Course</a>
 
-                    <a href="{{ route('courses.create') }}" class="btn btn-primary">Create Course</a>
+                        <h2>All Courses</h2>
+                        <ul>
+                            @foreach($courses as $course)
+                                <li>{{ $course->name }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                
                 </div>
             </div>
         </div>
