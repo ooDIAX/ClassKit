@@ -18,7 +18,7 @@
                         <h2>All Courses</h2>
                         <ul>
                             @foreach($courses as $course)
-                                <li>{{ $course->name }}</li>
+                                <li><a href="{{ route('courses.show', $course) }}">{{ $course->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

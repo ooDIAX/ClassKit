@@ -36,4 +36,9 @@ class CourseController extends Controller
     {
         return view('courses.create');
     }
+
+    public function show(Course $course)
+    {
+        return view('courses.show', compact('course'));
+    }
 }
