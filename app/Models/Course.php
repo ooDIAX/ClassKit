@@ -29,4 +29,9 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class, 'course_student', 'course_id', 'student_id');
     }
+
+    public function materials()
+    {
+        return $this->hasMany(Material::class);
+    }
 }
