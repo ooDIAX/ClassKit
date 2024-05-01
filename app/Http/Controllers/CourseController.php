@@ -39,6 +39,10 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
+        // Eager load the materials related to the course
+        $course->load('materials');
+
+        // Pass the course and its associated materials to the view
         return view('courses.show', compact('course'));
     }
 }
