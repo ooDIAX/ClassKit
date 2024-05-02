@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MaterialController extends Controller
 {
@@ -17,6 +18,12 @@ class MaterialController extends Controller
 
      public function create($course_id)
      {
+
+        $course = Course::findOrFail($course_id);
+        if (Auth::user()->id !== $course->teacher_id) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view('materials.createMaterial', compact('course_id'));
      }
 
