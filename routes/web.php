@@ -32,4 +32,5 @@ Route::post('/materials', [MaterialController::class, 'store'])->name('materials
 Route::get('/courses/{course}/enroll', [CourseEnrollmentController::class, 'enroll'])->name('courses.enroll');
 
 
+
 require __DIR__.'/auth.php';
