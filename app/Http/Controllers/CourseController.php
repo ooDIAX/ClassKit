@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class CourseController extends Controller
 {
@@ -36,12 +37,27 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
+    // public function show(Course $course)
+    // {
+    //     // Eager load the materials related to the course
+    //     $course->load('materials');
+
+    //     // Pass the course and its associated materials to the view
+    //     return view('courses.show', compact('course'));
+    // }
+
     public function show(Course $course)
     {
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Check if the user is enrolled in the course
+        $isEnrolled = $user ? $user->courses->contains($course->id) : false;
+
         // Eager load the materials related to the course
         $course->load('materials');
 
-        // Pass the course and its associated materials to the view
-        return view('courses.show', compact('course'));
+        // Pass the course, its associated materials, and enrollment status to the view
+        return view('courses.show', compact('course', 'isEnrolled'));
     }
 }
