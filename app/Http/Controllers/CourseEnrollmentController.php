@@ -11,8 +11,15 @@ class CourseEnrollmentController extends Controller
     {
         // Ensure the user is authenticated before enrolling
         if (auth()->check()) {
+            // Check if the user is already enrolled in the course
+            if (auth()->user()->courses->contains($course->id)) {
+                // User is already enrolled in this course, handle accordingly
+                return redirect()->route('courses.show', $course)
+                                 ->with('info', 'You are already enrolled in this course.');
+            }
+            
             // Enroll the authenticated user in the course
-            auth()->user()->courses()->syncWithoutDetaching([$course->id]);
+            auth()->user()->courses()->attach($course->id);
 
             // Redirect back to the course details page
             return redirect()->route('courses.show', $course)

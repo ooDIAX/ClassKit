@@ -52,7 +52,7 @@ class CourseController extends Controller
         $user = auth()->user();
 
         // Check if the user is enrolled in the course
-        $isEnrolled = $user ? $user->courses->contains($course->id) : false;
+        $isEnrolled = $user && $user->courses()->where('course_id', $course->id)->exists();
 
         // Eager load the materials related to the course
         $course->load('materials');
