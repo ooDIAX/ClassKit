@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\CourseEnrollmentController;
+use App\Http\Controllers\OtherController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/othercourses', [OtherController::class, 'index'])->name('othercourses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
 Route::get('/materials/create/{course_id}', [MaterialController::class, 'create'])->name('materials.create');
 Route::post('/materials', [MaterialController::class, 'store'])->name('materials.store');
