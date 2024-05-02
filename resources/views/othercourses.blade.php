@@ -1,9 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('oth') }}
-        </h2>
-    </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -11,13 +6,17 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     
                     <div class="mt-4">
+
+                    <h1 class="text-4xl font-bold mb-4">Other Courses</h1>
                     
-                        <div class = "p-6 text-gray-800 dark:text-gray-100">
-                            <h2>Other Courses</h2>
-                            @foreach ($otherCourses as $course)
-                                <div><a href="{{ route('courses.show', $course) }}">{{ $course->name }}</a></div>
-                                <!-- Display other course details as needed -->
-                            @endforeach
+                        <div class="p-6 text-gray-800 dark:text-gray-100">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                @foreach ($otherCourses as $course)
+                                    <div class="border border-gray-300 rounded-md p-4 hover:border-gray-500 transition duration-300">
+                                        <a href="{{ route('courses.show', $course) }}">{{ $course->name }}</a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
 
                     </div>
