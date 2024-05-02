@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\CourseEnrollmentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +27,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
 Route::get('/materials/create/{course_id}', [MaterialController::class, 'create'])->name('materials.create');
 Route::post('/materials', [MaterialController::class, 'store'])->name('materials.store');
-Route::post('/courses/{course}/enroll', 'CourseEnrollmentController@enroll')->name('courses.enroll');
+Route::get('/courses/{course}/enroll', [CourseEnrollmentController::class, 'enroll'])->name('courses.enroll');
 
 
 require __DIR__.'/auth.php';

@@ -18,7 +18,7 @@
         {{-- Display enroll button for non-enrolled user --}}
         <form action="{{ route('courses.enroll', ['course' => $course->id]) }}" method="POST">
             @csrf
-            <button type="submit">Enroll in Course</button>
+            <a href="{{ route('courses.enroll', ['course' => $course->id]) }}">Enroll in Course</a>
         </form>
     @endif
 </div>
