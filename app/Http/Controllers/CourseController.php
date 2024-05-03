@@ -28,6 +28,8 @@ class CourseController extends Controller
             'teacher_id' => auth()->id(),
         ]);
 
+        auth()->user()->courses()->attach($course->id);
+        
         // Redirect or respond as needed
         return redirect()->route('dashboard')->with('success', 'Course created successfully.');
     }
