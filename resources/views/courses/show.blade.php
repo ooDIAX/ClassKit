@@ -21,8 +21,8 @@
     @else
         {{-- Display enroll button for non-enrolled user --}}
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="border border-gray-300 rounded-md p-4 hover:border-gray-500 transition duration-300 block">
-                <a href="{{ route('courses.enroll', ['course' => $course->id]) }}">{{ $course->name }}</a>
+            <div class="rounded-md p-4 hover:border-gray-500 transition duration-300 block">
+                <a href="{{ route('courses.enroll', ['course' => $course->id]) }}" class="border border-gray-300 rounded-md p-4 hover:border-gray-500 transition duration-300 block">Enroll</a>
             </div>
         </div>
     @endif
