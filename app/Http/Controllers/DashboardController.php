@@ -12,13 +12,6 @@ class DashboardController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-
-    // public function index()
-    // {
-    //     $courses = Course::all();
-    //     return view('dashboard', compact('courses'));
-    // }
-
     public function index()
     {
         // Get the authenticated user

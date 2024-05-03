@@ -39,15 +39,6 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
-    // public function show(Course $course)
-    // {
-    //     // Eager load the materials related to the course
-    //     $course->load('materials');
-
-    //     // Pass the course and its associated materials to the view
-    //     return view('courses.show', compact('course'));
-    // }
-
     public function show(Course $course)
     {
         // Get the authenticated user

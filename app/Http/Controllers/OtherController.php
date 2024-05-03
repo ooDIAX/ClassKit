@@ -13,11 +13,6 @@ class OtherController extends Controller
      */
 
 
-    // public function index()
-    // {
-    //     $courses = Course::all();
-    //     return view('dashboard', compact('courses'));
-    // }
 
     public function index()
     {
